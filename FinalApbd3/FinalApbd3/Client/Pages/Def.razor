@@ -11,8 +11,8 @@
 
 
 
-    <SfAutoComplete Width="300px" TItem="DateVariants" TValue="string" Placeholder="Select word" DataSource="@data2" ID="SearchField" @bind-Value = "@CompanyNameHidden">
-        <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
+    <SfAutoComplete Width="300px" TItem="Company" TValue="string" Placeholder="Select word" DataSource="@data4" ID="SearchField" @bind-Value = "@CompanyNameHidden">
+        <AutoCompleteFieldSettings Value="ticker"></AutoCompleteFieldSettings>
     </SfAutoComplete>
     <br>
     <br>
@@ -31,7 +31,7 @@
 
         </SfDropDownList>
         </p>
-        <h3>No info provided</h3>
+        <h3 class="text-primary">No info provided</h3>
 
     }else
     {
@@ -53,6 +53,26 @@
                 </StockChartSeries>
             </StockChartSeriesCollection>
         </SfStockChart>
+        <h2 class="font-weight-bold">INFO</h2>
+        <p class="text-primary">From: @dailyOC.from  Close: @dailyOC.close   </p>
+        <p class="text-primary">Symbol: @dailyOC.symbol Volume: @dailyOC.volume </p>
+        <p class="text-primary">Open: @dailyOC.open After hours: @dailyOC.afterHours</p>
+        <p class="text-primary">High: @dailyOC.high Pre market: @dailyOC.preMarket</p>
+        <br>
+        <img src=@logo width="20" height="20" ALIGN="left" alt="Logo"> <h3 class="font-weight-bold">@dataByTicker.results.name (@dataByTicker.results.ticker)</h3> 
+        <p class="text-primary"> Desc : @dataByTicker.results.description</p>
+        <p class="text-primary"> Country : @dataByTicker.results.locale.ToUpper()</p>
+        <p class="text-primary"> Industry : @dataByTicker.results.sic_description</p>
+        <p class="text-primary"> HomePage : @dataByTicker.results.homepage_url</p>
+         <h2 class="font-weight-bold">News</h2>
+           @foreach (var item in @news)
+           {
+               <blockquote class="blockquote">
+                    <p class="mb-0">@item.title</p>
+                    <footer class="blockquote-footer">@item.author at <cite title="Source Title">@item.published_utc</cite></footer>
+               </blockquote>
+           }
+    
 
     }
 
@@ -61,6 +81,10 @@
     public string CompanyNameHidden = "";
     public string CompanyNameShown = "";
     public string DateOptions = "1";
+    public DailyOC dailyOC = new DailyOC();
+    public List<News> news = new List<News>();
+    public DataByTicker dataByTicker = new DataByTicker();
+    public string logo = "";
 
     public class DateVariants
     {
@@ -74,7 +98,8 @@
 
     public async Task take()
     {
-        //TO:DO -> take values for search
+        CompanyContainer cc = (await PolygonRepository.takePolygonStr(CompanyNameHidden));
+        data4 = cc.results;
     }
 
     public List<Data> data3 = new List<Data>();
@@ -91,7 +116,11 @@
                 item.date = item.GetDate();
             }
         }
-        
+        dailyOC = (await PolygonRepository.takeDataForDaily(CompanyNameShown+DateOptions));
+        dataByTicker = (await PolygonRepository.takeDataForDetails(CompanyNameShown));
+        logo = dataByTicker.results.branding.logo_url + "?apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
+        NewsContainer nc = (await PolygonRepository.takeDataForNews(CompanyNameShown));
+        news = nc.results;
     }
 
     protected void ValueChangeHandler(ChangeEventArgs<string, DateVariants> args)
@@ -114,7 +143,7 @@
             DateOptions = "4";
         }
     }
-
+    List<Company> data4 = new List<Company>();
 
     string defValForList = "Current day";
     List<DateVariants> data2 = new List<DateVariants>

@@ -7,9 +7,15 @@ namespace FinalApbd3.Client.Repository
     public interface IPolygonRepository
     {
 
-        public Task<string> takePolygonStr();
+        public Task<CompanyContainer> takePolygonStr(string ticker);
+
+        public  Task<DailyOC> takeDataForDaily(string ticker);
+
+        public Task<DataByTicker> takeDataForDetails(string ticker);
 
         public Task<DataContainer> takeDataForChart(string ticker);
+
+        public Task<NewsContainer> takeDataForNews(string ticker);
 
     }
 }

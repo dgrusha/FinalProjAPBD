@@ -147,12 +147,16 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 59 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\Def.razor"
+#line 79 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\Def.razor"
        
     public List<CompanyContainer> companyContainers = new List<CompanyContainer>(); 
     public string CompanyNameHidden = "";
     public string CompanyNameShown = "";
     public string DateOptions = "1";
+    public DailyOC dailyOC = new DailyOC();
+    public List<News> news = new List<News>();
+    public DataByTicker dataByTicker = new DataByTicker();
+    public string logo = "";
 
     public class DateVariants
     {
@@ -166,7 +170,8 @@ using System.Text.Json;
 
     public async Task take()
     {
-        //TO:DO -> take values for search
+        CompanyContainer cc = (await PolygonRepository.takePolygonStr(CompanyNameHidden));
+        data4 = cc.results;
     }
 
     public List<Data> data3 = new List<Data>();
@@ -183,7 +188,11 @@ using System.Text.Json;
                 item.date = item.GetDate();
             }
         }
-        
+        dailyOC = (await PolygonRepository.takeDataForDaily(CompanyNameShown+DateOptions));
+        dataByTicker = (await PolygonRepository.takeDataForDetails(CompanyNameShown));
+        logo = dataByTicker.results.branding.logo_url + "?apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
+        NewsContainer nc = (await PolygonRepository.takeDataForNews(CompanyNameShown));
+        news = nc.results;
     }
 
     protected void ValueChangeHandler(ChangeEventArgs<string, DateVariants> args)
@@ -206,7 +215,7 @@ using System.Text.Json;
             DateOptions = "4";
         }
     }
-
+    List<Company> data4 = new List<Company>();
 
     string defValForList = "Current day";
     List<DateVariants> data2 = new List<DateVariants>

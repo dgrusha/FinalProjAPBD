@@ -26,19 +26,80 @@ namespace FinalApbd3.Server.Controllers
             _polygonService = polygonService;
             _client = client;
         }
-        [Route("s2")]
+
+        [Route("s2/{ticker}")]
         [HttpGet]
-        public async Task<string> GetInfo() 
+        public async Task<string> GetInfo(string ticker) 
         {
             _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-            var test = await _client.GetAsync("https://api.polygon.io/v3/reference/tickers?active=true&sort=ticker&order=asc&limit=100000&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B&next_url");
+            char[] charArr = ticker.ToCharArray();
+            char nextCh = (char)((int)charArr[0] + 1);
+            var test = await _client.GetAsync("https://api.polygon.io/v3/reference/tickers?ticker.gte="+charArr[0]+"&ticker.lt="+nextCh+"&active=true&sort=ticker&order=asc&limit=1000&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B");
             test.EnsureSuccessStatusCode();
             string response = await test.Content.ReadAsStringAsync();
             Console.WriteLine("Response" + response);
             
             return response;
         }
+
+        [Route("s5/{ticker}")]
+        [HttpGet]
+        public async Task<string> GetInfo5(string ticker)
+        {
+            _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var test = await _client.GetAsync("https://api.polygon.io/v3/reference/tickers/"+ticker+"?apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B");
+            test.EnsureSuccessStatusCode();
+            string response = await test.Content.ReadAsStringAsync();
+            Console.WriteLine("Response" + response);
+
+            return response;
+        }
+
+        [Route("s6/{ticker}")]
+        [HttpGet]
+        public async Task<string> GetInfo6(string ticker)
+        {
+            _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var test = await _client.GetAsync("https://api.polygon.io/v2/reference/news?ticker="+ticker+"&limit=5&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B");
+            test.EnsureSuccessStatusCode();
+            string response = await test.Content.ReadAsStringAsync();
+            Console.WriteLine("Response" + response);
+
+            return response;
+        }
+
+        [Route("s4/{ticker}")]
+        [HttpGet]
+        public async Task<string> GetInfo4(string ticker)
+        {
+            _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            DateTime dt2 = DateTime.UtcNow.Date.AddDays(-10).AddYears(-1);
+            string tmp = ticker.Substring(ticker.Length - 1);
+            int code = Int32.Parse(tmp);
+            if (code == 2)
+            {
+                dt2 = DateTime.UtcNow.Date.AddDays(-17).AddYears(-1);
+            }
+            else if (code == 3)
+            {
+                dt2 = DateTime.UtcNow.Date.AddDays(-40).AddYears(-1);
+            }
+            else if (code == 4)
+            {
+                dt2 = DateTime.UtcNow.Date.AddDays(-100).AddYears(-1);
+            }
+            string dt2String = dt2.ToString("yyyy-MM-dd");
+            string req = "https://api.polygon.io/v1/open-close/" + ticker.Substring(0, ticker.Length - 1) + "/" + dt2String + "?adjusted=true&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
+            var test = await _client.GetAsync(req);
+            test.EnsureSuccessStatusCode();
+            string response = await test.Content.ReadAsStringAsync();
+            Console.WriteLine("Response" + response);
+
+            return response;
+        }
+
         [Route("{ticker}")]
         [HttpGet]
         public async Task<string> GetInfo2(string ticker)
