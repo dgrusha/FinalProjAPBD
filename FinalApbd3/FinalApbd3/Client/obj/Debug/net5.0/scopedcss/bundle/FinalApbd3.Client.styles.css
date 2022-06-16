@@ -1,0 +1,205 @@
+/* /Shared/MainLayout.razor.rz.scp.css */
+.page[b-yzhpi07pjh] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main[b-yzhpi07pjh] {
+    flex: 1;
+}
+
+.sidebar[b-yzhpi07pjh] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #061747 70%);
+}
+
+.top-row[b-yzhpi07pjh] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-yzhpi07pjh]  a, .top-row .btn-link[b-yzhpi07pjh] {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+    }
+
+    .top-row a:first-child[b-yzhpi07pjh] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-yzhpi07pjh] {
+        display: none;
+    }
+
+    .top-row.auth[b-yzhpi07pjh] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-yzhpi07pjh], .top-row .btn-link[b-yzhpi07pjh] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-yzhpi07pjh] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-yzhpi07pjh] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-yzhpi07pjh] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .main > div[b-yzhpi07pjh] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Shared/MainLayout2.razor.rz.scp.css */
+.page[b-hxu6bo1tef] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main[b-hxu6bo1tef] {
+    flex: 1;
+}
+
+.sidebar[b-hxu6bo1tef] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #061747 70%);
+}
+
+.top-row[b-hxu6bo1tef] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-hxu6bo1tef]  a, .top-row .btn-link[b-hxu6bo1tef] {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+    }
+
+    .top-row a:first-child[b-hxu6bo1tef] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-hxu6bo1tef] {
+        display: none;
+    }
+
+    .top-row.auth[b-hxu6bo1tef] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-hxu6bo1tef], .top-row .btn-link[b-hxu6bo1tef] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-hxu6bo1tef] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-hxu6bo1tef] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-hxu6bo1tef] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .main > div[b-hxu6bo1tef] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Shared/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-mrwbwg5cel] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-mrwbwg5cel] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-mrwbwg5cel] {
+    font-size: 1.1rem;
+}
+
+.oi[b-mrwbwg5cel] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-mrwbwg5cel] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-mrwbwg5cel] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-mrwbwg5cel] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-mrwbwg5cel]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+.nav-item[b-mrwbwg5cel]  a.active {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.nav-item[b-mrwbwg5cel]  a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-mrwbwg5cel] {
+        display: none;
+    }
+
+    .collapse[b-mrwbwg5cel] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}

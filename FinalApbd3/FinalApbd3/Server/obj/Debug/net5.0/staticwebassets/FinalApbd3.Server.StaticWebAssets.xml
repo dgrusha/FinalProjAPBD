@@ -1,0 +1,8 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\bin\Debug\net5.0\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="/" Path="C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\wwwroot\" />
+  <ContentRoot BasePath="/Identity" Path="C:\Users\Dima\.nuget\packages\microsoft.aspnetcore.identity.ui\5.0.16\staticwebassets\V4\" />
+  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\Dima\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\5.0.16\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor" Path="C:\Users\Dima\.nuget\packages\syncfusion.blazor\20.1.0.58\build\..\staticwebassets\" />
+</StaticWebAssets>

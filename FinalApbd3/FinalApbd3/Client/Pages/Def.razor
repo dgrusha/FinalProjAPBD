@@ -1,0 +1,129 @@
+﻿@page "/c"
+@using FinalApbd3.Shared.Models
+@using Newtonsoft.Json
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Charts
+@using Repository
+@using System.Text.Json
+@inject IPolygonRepository PolygonRepository
+
+<h2>DashBoard</h2>
+
+
+
+    <SfAutoComplete Width="300px" TItem="DateVariants" TValue="string" Placeholder="Select word" DataSource="@data2" ID="SearchField" @bind-Value = "@CompanyNameHidden">
+        <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
+    </SfAutoComplete>
+    <br>
+    <br>
+    <button @onclick="take" style="margin-bottom:2em" class="btn btn-primary" ceiling="10" floor="0">Take Hint</button>
+    <button @onclick="(() => Add(CompanyNameHidden))" style="margin-bottom:2em" class="btn btn-primary">Get Data</button>
+    
+    @if (data3.Count() == 0)
+    {
+        <p style="margin-bottom:2em" ceiling="10" floor="0">
+        <SfDropDownList Width="300px" TItem="DateVariants" TValue="string" DataSource="data2" Placeholder="Put a period of time (by default current day)">
+
+            <DropDownListEvents  TItem="DateVariants" TValue="string" ValueChange="@ValueChangeHandler"></DropDownListEvents>
+
+            <DropDownListFieldSettings Text="Name" Value="Value">
+            </DropDownListFieldSettings>
+
+        </SfDropDownList>
+        </p>
+        <h3>No info provided</h3>
+
+    }else
+    {
+
+        <p style="margin-bottom:2em" ceiling="10" floor="0">
+        <SfDropDownList Width="300px" TItem="DateVariants" TValue="string" DataSource="data2" Placeholder="Put a period of time (by default current day)">
+
+            <DropDownListFieldSettings Text="Name" Value="Value">
+
+            </DropDownListFieldSettings>
+
+        </SfDropDownList>
+        </p>
+
+        <SfStockChart>
+            <StockChartSeriesCollection>
+                <StockChartSeries  Type="@Syncfusion.Blazor.Charts.ChartSeriesType.Candle" XName="date" 
+                DataSource="@data3" High="h" Low="l" Close="c" Open="o">
+                </StockChartSeries>
+            </StockChartSeriesCollection>
+        </SfStockChart>
+
+    }
+
+@code {
+    public List<CompanyContainer> companyContainers = new List<CompanyContainer>(); 
+    public string CompanyNameHidden = "";
+    public string CompanyNameShown = "";
+    public string DateOptions = "1";
+
+    public class DateVariants
+    {
+        public string Name { get; set; }
+
+        public int Value { get; set; }
+
+    };
+
+    string res ="";
+
+    public async Task take()
+    {
+        //TO:DO -> take values for search
+    }
+
+    public List<Data> data3 = new List<Data>();
+    protected async Task Add(string name)
+    {
+        CompanyNameShown = name;
+
+        DataContainer dc = (await PolygonRepository.takeDataForChart(CompanyNameShown+DateOptions));
+        if (dc.resultsCount != 0)
+        {
+            data3 = dc.results;
+            foreach (var item in data3)
+            {
+                item.date = item.GetDate();
+            }
+        }
+        
+    }
+
+    protected void ValueChangeHandler(ChangeEventArgs<string, DateVariants> args)
+    {
+        int tmp = args.ItemData.Value;
+        if (tmp == 1)
+        {
+            DateOptions = "1";
+        }
+        else if (tmp == 2)
+        {
+            DateOptions = "2";    
+        }
+        else if (tmp == 3)
+        {
+            DateOptions = "3";       
+        }
+        else if (tmp == 4)
+        {
+            DateOptions = "4";
+        }
+    }
+
+
+    string defValForList = "Current day";
+    List<DateVariants> data2 = new List<DateVariants>
+    {
+     new DateVariants(){ Name = "Current day" , Value=1 },
+     new DateVariants(){ Name ="1 week ago" , Value=2 },
+     new DateVariants(){ Name ="1 month ago" , Value=3 },
+     new DateVariants(){ Name ="3 month ago" , Value=4 },
+    };
+
+   
+}

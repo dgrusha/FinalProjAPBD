@@ -1,0 +1,254 @@
+﻿++Решение "FinalApbd3" ‎(проекты: 3 из 3)
+i:{00000000-0000-0000-0000-000000000000}:FinalApbd3.sln
+++FinalApbd3.Shared
+i:{00000000-0000-0000-0000-000000000000}:FinalApbd3.Shared
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\shared\finalapbd3.shared.csproj
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\shared\finalapbd3.shared.csproj
+++Зависимости
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:>3036
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>2681
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>3025
+++Models
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\shared\models\
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\models\
+++Company.cs
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\shared\models\company.cs
+++WeatherForecast.cs
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\shared\weatherforecast.cs
+++Анализаторы
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:анализаторы
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:анализаторы
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:анализаторы
+++Платформы
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:платформы
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:платформы
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:платформы
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.NETCore.App
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\shared\microsoft.netcore.app
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\microsoft.netcore.app
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\microsoft.netcore.app
+++FinalApbd3.Server
+i:{00000000-0000-0000-0000-000000000000}:FinalApbd3.Server
+++Connected Services 
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>2682
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>3026
+++Properties
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\properties\
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\properties\
+++Areas
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\areas\
+++Controllers
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\controllers\
+++OidcConfigurationController.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\controllers\oidcconfigurationcontroller.cs
+++PolygonController.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\controllers\polygoncontroller.cs
+++WeatherForecastController.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\controllers\weatherforecastcontroller.cs
+++Data
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\data\
+++Migrations
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\data\migrations\
+++00000000000000_CreateIdentitySchema.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\data\migrations\00000000000000_createidentityschema.cs
+++ApplicationDbContextModelSnapshot.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\data\migrations\applicationdbcontextmodelsnapshot.cs
+++ApplicationDbContext.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\data\applicationdbcontext.cs
+++ApplicationUser.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\models\applicationuser.cs
+++Pages
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\pages\
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\areas\identity\pages\
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\pages\
+++Error.cshtml
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\pages\error.cshtml
+++Services
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\services\
+++PolygonioService.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\services\polygonioservice.cs
+++appsettings.json
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\appsettings.json
+++Program.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\program.cs
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\program.cs
+++Startup.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\startup.cs
+++SQL Server Express LocalDB (локальная) (ConnectionStrings:DefaultConnection)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>3039
+++launchSettings.json
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\properties\launchsettings.json
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\properties\launchsettings.json
+++serviceDependencies.json
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\properties\servicedependencies.json
+++Пакеты
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:пакеты
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:пакеты
+++Проекты
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:проекты
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:проекты
+++Identity
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\areas\identity\
+++00000000000000_CreateIdentitySchema.Designer.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\data\migrations\00000000000000_createidentityschema.designer.cs
+++Error.cshtml.cs
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\pages\error.cshtml.cs
+++appsettings.Development.json
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\appsettings.development.json
+++serviceDependencies.local.json
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\properties\servicedependencies.local.json
+++Microsoft.AspNetCore.Analyzers
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\.nuget\packages\microsoft.aspnetcore.components.analyzers\5.0.16\analyzers\dotnet\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\.nuget\packages\microsoft.entityframeworkcore.analyzers\5.0.16\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++System.Text.Json.SourceGeneration
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\.nuget\packages\system.text.json\6.0.0\analyzers\dotnet\roslyn4.0\cs\system.text.json.sourcegeneration.dll
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\.nuget\packages\system.text.json\6.0.0\analyzers\dotnet\roslyn4.0\cs\system.text.json.sourcegeneration.dll
+++Microsoft.AspNetCore.ApiAuthorization.IdentityServer (5.0.16)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>3112
+++Microsoft.AspNetCore.Components.WebAssembly.Server (5.0.16)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>3110
+++Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore (5.0.16)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>3107
+++Microsoft.AspNetCore.Identity.EntityFrameworkCore (5.0.16)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>3108
+++Microsoft.AspNetCore.Identity.UI (5.0.16)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>3111
+++Microsoft.EntityFrameworkCore.SqlServer (5.0.16)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>3106
+++Microsoft.EntityFrameworkCore.Tools (5.0.16)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>3109
+++WebSocket4Net (0.15.2)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>5204
+++Microsoft.AspNetCore.App
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\microsoft.aspnetcore.app
+++FinalApbd3.Client
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\finalapbd3.client.csproj
+i:{00000000-0000-0000-0000-000000000000}:FinalApbd3.Client
+++Shared
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\areas\identity\pages\shared\
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\
+++_LoginPartial.cshtml
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\server\areas\identity\pages\shared\_loginpartial.cshtml
+++wwwroot
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\
+++Authentication.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\pages\authentication.razor
+++Counter.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\pages\counter.razor
+++FetchData.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\pages\fetchdata.razor
+++Index.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\pages\index.razor
+++LoginDisplay.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\logindisplay.razor
+++MainLayout.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\mainlayout.razor
+++NavMenu.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\navmenu.razor
+++RedirectToLogin.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\redirecttologin.razor
+++SurveyPrompt.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\surveyprompt.razor
+++_Imports.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\_imports.razor
+++App.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\app.razor
+++Зависимости службы не обнаружены
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>3027
+++css
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\css\
+++favicon.ico
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\favicon.ico
+++index.html
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\index.html
+++MainLayout.razor.css
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\mainlayout.razor.css
+++NavMenu.razor.css
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\navmenu.razor.css
+++bootstrap
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\bootstrap\
+++open-iconic
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\
+++app.css
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\app.css
+++ILLink.CodeFixProvider
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\illink.codefixprovider.dll
+++ILLink.RoslynAnalyzer
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\illink.roslynanalyzer.dll
+++Microsoft.AspNetCore.Components.WebAssembly (5.0.16)
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>3089
+++Microsoft.AspNetCore.Components.WebAssembly.Authentication (5.0.16)
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>3091
+++Microsoft.AspNetCore.Components.WebAssembly.DevServer (5.0.16)
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>3092
+++Microsoft.Extensions.Http (5.0.0)
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>3090
+++Syncfusion.Blazor (20.1.0.58)
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>4895
+++System.Net.Http.Json (5.0.0)
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:>3093
+++bootstrap.min.css
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\bootstrap\bootstrap.min.css
+++font
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\
+++FONT-LICENSE
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font-license
+++ICON-LICENSE
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\icon-license
+++README.md
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\readme.md
+++bootstrap.min.css.map
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\bootstrap\bootstrap.min.css.map
+++fonts
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\fonts\
+++open-iconic-bootstrap.min.css
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css
+++open-iconic.eot
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\fonts\open-iconic.eot
+++open-iconic.otf
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\fonts\open-iconic.otf
+++open-iconic.svg
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\fonts\open-iconic.svg
+++open-iconic.ttf
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\fonts\open-iconic.ttf
+++open-iconic.woff
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\wwwroot\css\open-iconic\font\fonts\open-iconic.woff
+++Component.razor
+++Def.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\pages\def.razor
+++MainLayout - Копировать.razor
+++MainLayout - Копировать.razor.css
+++MainLayout 2.razor
+++MainLayout 2.razor.css
+++MainLayout2.razor
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\mainlayout2.razor
+++MainLayout2.razor.css
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\shared\mainlayout2.razor.css
+++Новая папка
+++Repository
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\repository\
+++IPolygonRepository.cs
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\repository\ipolygonrepository.cs
+++PolygonRepository.cs
+i:{f88f1803-86a2-41a2-a794-92c114af3d84}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\client\repository\polygonrepository.cs
+++Microsoft.Extensions.Configuration.Json (5.0.0)
+i:{1673ab14-bb73-465c-bd4e-77c84b49c9e3}:>5897
+++Company2.cs
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\shared\models\company2.cs
+++CompanyContainer.cs
+i:{79b2ee05-f1b4-49e8-ab03-682616a84392}:c:\users\dima\source\repos\finalprojapbd\finalapbd3\finalapbd3\shared\models\companycontainer.cs

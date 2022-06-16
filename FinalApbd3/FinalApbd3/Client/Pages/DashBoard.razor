@@ -1,0 +1,24 @@
+﻿@page "/counter"
+@using Syncfusion.Blazor.DropDowns
+@using FinalApbd3.Shared.Models
+
+<h1>DashBoard</h1>
+
+
+<div class="control_wrapper">
+    <SfAutoComplete TItem="Company2" TValue="string" Placeholder="Select word" DataSource="@data">
+        <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
+    </SfAutoComplete>
+</div>
+
+
+
+@code {
+
+    List<Company2> data = new List<Company2>
+    {
+     new Company2(){ Name ="aaaaaa" , Value=1 },
+     new Company2(){ Name ="baaaaa" , Value=2 },
+    };
+
+}
