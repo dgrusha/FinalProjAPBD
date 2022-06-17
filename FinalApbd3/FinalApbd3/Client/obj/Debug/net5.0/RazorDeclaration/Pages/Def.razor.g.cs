@@ -147,13 +147,14 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 79 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\Def.razor"
+#line 89 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\Def.razor"
        
     public List<CompanyContainer> companyContainers = new List<CompanyContainer>(); 
     public string CompanyNameHidden = "";
     public string CompanyNameShown = "";
     public string DateOptions = "1";
     public DailyOC dailyOC = new DailyOC();
+    public bool dailyOcValid = true;
     public List<News> news = new List<News>();
     public DataByTicker dataByTicker = new DataByTicker();
     public string logo = "";
@@ -189,6 +190,7 @@ using System.Text.Json;
             }
         }
         dailyOC = (await PolygonRepository.takeDataForDaily(CompanyNameShown+DateOptions));
+        if (dailyOC.status == "404") { dailyOcValid = false; }
         dataByTicker = (await PolygonRepository.takeDataForDetails(CompanyNameShown));
         logo = dataByTicker.results.branding.logo_url + "?apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
         NewsContainer nc = (await PolygonRepository.takeDataForNews(CompanyNameShown));

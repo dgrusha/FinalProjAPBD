@@ -77,6 +77,7 @@ namespace FinalApbd3.Server.Controllers
             _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             DateTime dt2 = DateTime.UtcNow.Date.AddDays(-10).AddYears(-1);
             string tmp = ticker.Substring(ticker.Length - 1);
+            string ticker2 = ticker.Substring(0, ticker.Length - 1);
             int code = Int32.Parse(tmp);
             if (code == 2)
             {
@@ -91,8 +92,13 @@ namespace FinalApbd3.Server.Controllers
                 dt2 = DateTime.UtcNow.Date.AddDays(-100).AddYears(-1);
             }
             string dt2String = dt2.ToString("yyyy-MM-dd");
-            string req = "https://api.polygon.io/v1/open-close/" + ticker.Substring(0, ticker.Length - 1) + "/" + dt2String + "?adjusted=true&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
+            string req = "https://api.polygon.io/v1/open-close/"+ticker2+"/"+dt2String+"?adjusted=true&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
+            //string req = "https://api.polygon.io/v1/open-close/" + ticker.Substring(0, ticker.Length - 1) + "/" + dt2String + "?adjusted=true&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
             var test = await _client.GetAsync(req);
+            if (!test.IsSuccessStatusCode)
+            {
+                return "404";
+            }
             test.EnsureSuccessStatusCode();
             string response = await test.Content.ReadAsStringAsync();
             Console.WriteLine("Response" + response);

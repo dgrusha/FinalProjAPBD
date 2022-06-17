@@ -32,6 +32,10 @@ namespace FinalApbd3.Client.Repository
             var res = await _httpClient.GetAsync("api/polygon/s4/"+ticker);
             Console.WriteLine(await res.Content.ReadAsStringAsync());
             var res2 = await res.Content.ReadAsStringAsync();
+            if (res2 == "404") 
+            {
+                return new DailyOC() {status ="404" };
+            }
             DailyOC data = JsonConvert.DeserializeObject<DailyOC>(res2);
             return data;
         }
