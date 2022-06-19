@@ -1,4 +1,7 @@
 ﻿@page "/c"
+@using FinalApbd3.Shared.DTO
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using FinalApbd3.Shared.Models
 @using Newtonsoft.Json
 @using Syncfusion.Blazor.DropDowns
@@ -6,6 +9,34 @@
 @using Repository
 @using System.Text.Json
 @inject IPolygonRepository PolygonRepository
+@inject ICompanyRepository CompanyRepository
+@attribute [Authorize]
+
+<style type="text/css">
+        .xyz {
+            background-size: auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .btn-circle.btn-sm {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            font-size: 8px;
+            text-align: center;
+            margin-left: 2.5em;
+        }
+        .btn-circle.btn-md {
+            width: 50px;
+            height: 50px;
+            padding: 7px 10px;
+            border-radius: 25px;
+            font-size: 20px;
+            text-align: center;
+            margin-left: 2.5em;
+        }
+    </style>
 
 <h2>DashBoard</h2>
 
@@ -56,24 +87,37 @@
 
     @if (@dailyOcValid == true)
     {
-        <h2 class="font-weight-bold">INFO</h2>
-        <p class="text-primary">From: @dailyOC.from  Close: @dailyOC.close   </p>
-        <p class="text-primary">Symbol: @dailyOC.symbol Volume: @dailyOC.volume </p>
-        <p class="text-primary">Open: @dailyOC.open After hours: @dailyOC.afterHours</p>
-        <p class="text-primary">High: @dailyOC.high Pre market: @dailyOC.preMarket</p>
-        <br>
+        <div class="p-3 mb-2 bg-light text-dark">
+            <h2 class="font-weight-bold">INFO</h2>
+            <p class="text-primary">From: @dailyOC.from  Close: @dailyOC.close   </p>
+            <p class="text-primary">Symbol: @dailyOC.symbol Volume: @dailyOC.volume </p>
+            <p class="text-primary">Open: @dailyOC.open After hours: @dailyOC.afterHours</p>
+            <p class="text-primary">High: @dailyOC.high Pre market: @dailyOC.preMarket</p>
+            <br>
+        </div>
     }
     else 
     {
-        <p class="font-weight-bold">No info on supposed day was found</p>
+        <p class="alert alert-danger" role="alert">No info on supposed day was found</p>
     }
-
+    @if (!String.IsNullOrEmpty(@isAdded))
+    {
+        <p class="alert alert-primary" role="alert">@isAdded</p>
+    }
+    
+        <button @onclick="update" style="text-align:center" class="btn btn-primary btn-circle btn-md">+</button>
         
-        <img src=@logo width="20" height="20" ALIGN="left" alt="Logo"> <h3 class="font-weight-bold">@dataByTicker.results.name (@dataByTicker.results.ticker)</h3> 
-        <p class="text-primary"> Desc : @dataByTicker.results.description</p>
-        <p class="text-primary"> Country : @dataByTicker.results.locale.ToUpper()</p>
-        <p class="text-primary"> Industry : @dataByTicker.results.sic_description</p>
-        <p class="text-primary"> HomePage : @dataByTicker.results.homepage_url</p>
+        <img src=@logo width="40" height="40" ALIGN="left" alt="Logo"> <h3 class="font-weight-bold">@dataByTicker.results.name (@dataByTicker.results.ticker)</h3> 
+        <div class="p-3 mb-2 bg-light text-dark">
+            <h4 class="font-weight-bold">Desc :</h4>
+            <p class="text-primary">  @dataByTicker.results.description</p>
+            <h4 class="font-weight-bold">Country :</h4>
+            <p class="text-primary">  @dataByTicker.results.locale.ToUpper()</p>
+            <h4 class="font-weight-bold">Industry :</h4>
+            <p class="text-primary">  @dataByTicker.results.sic_description</p>
+            <h4 class="font-weight-bold">HomePage :</h4>
+            <p class="text-primary">  @dataByTicker.results.homepage_url</p>
+        </div>
          <h2 class="font-weight-bold">News</h2>
            @foreach (var item in @news)
            {
@@ -96,6 +140,7 @@
     public List<News> news = new List<News>();
     public DataByTicker dataByTicker = new DataByTicker();
     public string logo = "";
+    public string isAdded = "";
 
     public class DateVariants
     {
@@ -111,6 +156,19 @@
     {
         CompanyContainer cc = (await PolygonRepository.takePolygonStr(CompanyNameHidden));
         data4 = cc.results;
+    }
+
+    public async Task update()
+    {
+        CompanyDTOClient comp = new CompanyDTOClient()
+            {
+                Name = dataByTicker.results.name,
+                Symbol = dataByTicker.results.ticker,
+                Sector = dataByTicker.results.sic_description,
+                Country = dataByTicker.results.locale.ToUpper(),
+                Ceo = "CeoIsNotSpecified"
+            };
+        isAdded =  (await CompanyRepository.AddInfo(comp));
     }
 
     public List<Data> data3 = new List<Data>();
@@ -133,6 +191,7 @@
         logo = dataByTicker.results.branding.logo_url + "?apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
         NewsContainer nc = (await PolygonRepository.takeDataForNews(CompanyNameShown));
         news = nc.results;
+        isAdded = "";
     }
 
     protected void ValueChangeHandler(ChangeEventArgs<string, DateVariants> args)

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using FinalApbd3.Shared.DTO;
 using FinalApbd3.Shared.Models;
 
 namespace FinalApbd3.Client.Repository
@@ -8,6 +9,8 @@ namespace FinalApbd3.Client.Repository
     {
 
         public Task<CompanyContainer> takePolygonStr(string ticker);
+
+        public Task<string> AddInfo(CompanyDTOClient company);
 
         public  Task<DailyOC> takeDataForDaily(string ticker);
 

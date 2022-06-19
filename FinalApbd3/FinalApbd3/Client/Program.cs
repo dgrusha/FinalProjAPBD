@@ -40,6 +40,7 @@ namespace FinalApbd3.Client
         private static void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IPolygonRepository, PolygonRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
         }
     }
 }

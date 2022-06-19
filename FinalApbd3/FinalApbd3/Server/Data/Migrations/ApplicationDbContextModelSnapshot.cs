@@ -15,9 +15,50 @@ namespace FinalApbd3.Server.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0-rc.1.20417.2");
+                .HasAnnotation("ProductVersion", "5.0.16")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("FinalApbd3.Server.DTO.CompanyDTO", b =>
+                {
+                    b.Property<string>("Symbol")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Ceo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sector")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Symbol");
+
+                    b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("FinalApbd3.Server.DTO.CompanyUser", b =>
+                {
+                    b.Property<string>("IdUser")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("IdCompany")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("IdUser", "IdCompany");
+
+                    b.HasIndex("IdCompany");
+
+                    b.ToTable("CompanyUsers");
+                });
 
             modelBuilder.Entity("FinalApbd3.Server.Models.ApplicationUser", b =>
                 {
@@ -219,7 +260,7 @@ namespace FinalApbd3.Server.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -243,7 +284,7 @@ namespace FinalApbd3.Server.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -322,6 +363,25 @@ namespace FinalApbd3.Server.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("FinalApbd3.Server.DTO.CompanyUser", b =>
+                {
+                    b.HasOne("FinalApbd3.Server.DTO.CompanyDTO", "CompanyProj")
+                        .WithMany("CompanyUsers")
+                        .HasForeignKey("IdCompany")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FinalApbd3.Server.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("CompanyUsers")
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("CompanyProj");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -371,6 +431,16 @@ namespace FinalApbd3.Server.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FinalApbd3.Server.DTO.CompanyDTO", b =>
+                {
+                    b.Navigation("CompanyUsers");
+                });
+
+            modelBuilder.Entity("FinalApbd3.Server.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("CompanyUsers");
                 });
 #pragma warning restore 612, 618
         }

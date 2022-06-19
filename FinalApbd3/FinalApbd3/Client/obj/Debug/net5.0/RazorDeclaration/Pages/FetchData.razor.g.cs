@@ -98,27 +98,62 @@ using Syncfusion.Blazor;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
-using Microsoft.AspNetCore.Authorization;
+using FinalApbd3.Client.Repository;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
-using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+using FinalApbd3.Shared.DTO;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
-using FinalApbd3.Shared;
+using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+using FinalApbd3.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+using Syncfusion.Blazor.Grids;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+using Syncfusion.Blazor.Navigations;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+using Syncfusion.Blazor.TreeGrid;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
            [Authorize]
 
 #line default
@@ -133,27 +168,22 @@ using FinalApbd3.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+#line 55 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
        
-    private WeatherForecast[] forecasts;
+    public List<CompanyDTOClient> list = new List<CompanyDTOClient>();
+
+
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
-        }
-        catch (AccessTokenNotAvailableException exception)
-        {
-            exception.Redirect();
-        }
+        this.list = (await CompanyRepository.GetInfo());
+        StateHasChanged();
     }
-
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICompanyRepository CompanyRepository { get; set; }
     }
 }
 #pragma warning restore 1591

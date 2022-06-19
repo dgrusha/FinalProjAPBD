@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using FinalApbd3.Shared.DTO;
 using FinalApbd3.Shared.Models;
 using Newtonsoft.Json;
 
@@ -64,6 +66,21 @@ namespace FinalApbd3.Client.Repository
             var res2 = await res.Content.ReadAsStringAsync();
             CompanyContainer cc = JsonConvert.DeserializeObject<CompanyContainer>(res2);
             return cc;
+        }
+
+        public async Task<string> AddInfo(CompanyDTOClient company)
+        {
+            var values = new Dictionary<string, string>
+              {
+                  { "Name", company.Name },
+                  { "Symbol", company.Symbol },
+                  { "Sector", company.Sector },
+                  { "Country", company.Country },
+                  { "Ceo", company.Ceo }
+              };
+            var content = new FormUrlEncodedContent(values);
+            var res = await _httpClient.PostAsync("api/company/", content);
+            return "ggg";
         }
 
     }
