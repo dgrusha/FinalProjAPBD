@@ -34,6 +34,13 @@ namespace FinalApbd3.Client.Repository
             return res2;
         }
 
+        public async Task DeleteInfo(string symbol)
+        {
+            var res = await _httpClient.DeleteAsync("api/company/"+symbol);
+            var res2 = await res.Content.ReadAsStringAsync();
+            Console.WriteLine(res2);
+        }
+
         public async Task<List<CompanyDTOClient>> GetInfo()
         {
             var res = await _httpClient.GetAsync("api/company/");

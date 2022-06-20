@@ -133,27 +133,41 @@ using FinalApbd3.Shared;
 #nullable disable
 #nullable restore
 #line 7 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
-using Syncfusion.Blazor.Grids;
+using Syncfusion.Blazor.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 8 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
-using Syncfusion.Blazor.Navigations;
+using Syncfusion.Blazor.DropDowns;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 9 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
-using Syncfusion.Blazor.TreeGrid;
+using Syncfusion.Blazor.Grids;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+using Syncfusion.Blazor.Navigations;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+using Syncfusion.Blazor.TreeGrid;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
            [Authorize]
 
 #line default
@@ -168,17 +182,49 @@ using Syncfusion.Blazor.TreeGrid;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 55 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
+#line 91 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\FetchData.razor"
        
+    public class DateVariants
+    {
+        public string Name { get; set; }
+
+        public int Value { get; set; }
+
+    };
     public List<CompanyDTOClient> list = new List<CompanyDTOClient>();
-
-
+    public string deleted = "1";
+    public string chosen = "12";
+    public string DataSymbol = "";
 
     protected override async Task OnInitializedAsync()
     {
         this.list = (await CompanyRepository.GetInfo());
+        foreach (var item in list)
+        {
+            data2.Add(item.Symbol);
+        }
         StateHasChanged();
     }
+
+    protected void ValueChangeHandler(ChangeEventArgs<string, string> args)
+    {
+        DataSymbol = args.ItemData;
+
+    }
+
+    protected async Task ProvideDelete()
+    {
+        list.RemoveAll(x=>x.Symbol == DataSymbol);
+        data2.RemoveAll(x=>x==DataSymbol);
+        await CompanyRepository.DeleteInfo(DataSymbol);
+        DataSymbol = "";
+    }
+
+    List<string> data2 = new List<string>
+    {
+     
+    };
+
 
 #line default
 #line hidden

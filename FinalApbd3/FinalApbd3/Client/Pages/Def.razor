@@ -69,9 +69,8 @@
 
         <p style="margin-bottom:2em" ceiling="10" floor="0">
         <SfDropDownList Width="300px" TItem="DateVariants" TValue="string" DataSource="data2" Placeholder="Put a period of time (by default current day)">
-
-            <DropDownListFieldSettings Text="Name" Value="Value">
-
+                <DropDownListEvents  TItem="DateVariants" TValue="string" ValueChange="@ValueChangeHandler"></DropDownListEvents>
+                <DropDownListFieldSettings Text="Name" Value="Value">
             </DropDownListFieldSettings>
 
         </SfDropDownList>
@@ -127,9 +126,8 @@
                </blockquote>
            }
     
-
+           
     }
-
 @code {
     public List<CompanyContainer> companyContainers = new List<CompanyContainer>(); 
     public string CompanyNameHidden = "";

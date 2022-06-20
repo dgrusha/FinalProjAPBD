@@ -29,40 +29,40 @@ namespace FinalApbd3.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> UpdateCompaniesToUsers()
+        public async Task<IActionResult> GetCompaniesToUsers()
         {
             var userId = _httpContextAccessor.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier);
             var us2 = _context.Users.FirstOrDefault();
             List<CompanyDTOClient> listOfComp = (from us in _context.Users
-                                 join cu in _context.CompanyUsers on us.Id equals cu.IdUser
-                                 join co in _context.Companies on cu.IdCompany equals co.Symbol
-                                 where cu.IdUser == userId
-                                 select new CompanyDTOClient {Name = co.Name, Ceo = co.Ceo, Country = co.Country, Sector = co.Sector, Symbol = co.Symbol }).ToList();
+                                                 join cu in _context.CompanyUsers on us.Id equals cu.IdUser
+                                                 join co in _context.Companies on cu.IdCompany equals co.Symbol
+                                                 where cu.IdUser == userId
+                                                 select new CompanyDTOClient { Name = co.Name, Ceo = co.Ceo, Country = co.Country, Sector = co.Sector, Symbol = co.Symbol }).ToList();
             return Ok(listOfComp);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateCompaniesToUsers2(CompanyDTOClient company)
+        public async Task<IActionResult> UpdateCompaniesToUsers(CompanyDTOClient company)
         {
             var us2 = _context.Users.FirstOrDefault();
             var userId = _httpContextAccessor.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier);
             int countCompany = _context.Companies.Where(c => c.Symbol == company.Symbol).Count();
-            if (countCompany == 0) 
+            if (countCompany == 0)
             {
-                _context.Companies.Add(new CompanyDTO {Name = company.Name, Ceo=company.Ceo, Country=company.Country, Sector=company.Sector, Symbol= company.Symbol });
+                _context.Companies.Add(new CompanyDTO { Name = company.Name, Ceo = company.Ceo, Country = company.Country, Sector = company.Sector, Symbol = company.Symbol });
                 _context.SaveChanges();
             }
             int countCompUser = (from us in _context.Users
-                                join cu in _context.CompanyUsers on us.Id equals cu.IdUser
-                                join co in _context.Companies on cu.IdCompany equals co.Symbol
-                                where cu.IdUser == userId && cu.IdCompany == company.Symbol
-                                select cu.IdCompany).Count();
+                                 join cu in _context.CompanyUsers on us.Id equals cu.IdUser
+                                 join co in _context.Companies on cu.IdCompany equals co.Symbol
+                                 where cu.IdUser == userId && cu.IdCompany == company.Symbol
+                                 select cu.IdCompany).Count();
             if (countCompUser == 0)
             {
                 _context.CompanyUsers.Add(new CompanyUser { IdCompany = company.Symbol, IdUser = userId });
                 _context.SaveChanges();
             }
-            else 
+            else
             {
                 return Ok("It is already on your wishlist!");
             }
@@ -70,6 +70,16 @@ namespace FinalApbd3.Server.Controllers
             return Ok("It was added to your wishlist!");
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCompanyUser(string id) 
+        {
+
+            var userId = _httpContextAccessor.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            CompanyUser companyUser = _context.CompanyUsers.Where(x => x.IdUser == userId && x.IdCompany == id).FirstOrDefault();
+            _context.Remove(companyUser);
+            _context.SaveChanges();
+            return Ok("Deleted");
+        }
 
     }
 }

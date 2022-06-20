@@ -4,21 +4,27 @@
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using FinalApbd3.Shared
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.DropDowns
 @using Syncfusion.Blazor.Grids
 @using Syncfusion.Blazor.Navigations
 @using Syncfusion.Blazor.TreeGrid
 @attribute [Authorize]
 @inject ICompanyRepository CompanyRepository
-<h1>WhishList</h1>
 
 @if (@list.Count == 0)
 {
     <p>Loading</p>
 }else
 {
-    <Syncfusion.Blazor.Grids.SfGrid DataSource="@list" AllowPaging="true" AllowSorting="true" Toolbar="@(new List<string>() {"Delete"})">
-        
-        <GridEditSettings AllowDeleting="true"></GridEditSettings>
+    <SfTab>
+    <TabItems>
+        <TabItem>
+            <ChildContent>
+                <TabHeader Text="Wish List"></TabHeader>
+            </ChildContent>
+            <ContentTemplate>
+                <Syncfusion.Blazor.Grids.SfGrid DataSource="@list" AllowPaging="true" AllowSorting="true" >
         <GridColumns>
 
             <GridColumn Field=@nameof(CompanyDTOClient.Symbol) 
@@ -50,16 +56,78 @@
         </GridColumns>
 
     </Syncfusion.Blazor.Grids.SfGrid>
+            </ContentTemplate>
+        </TabItem>
+        <TabItem>
+            <ChildContent>
+                <TabHeader Text="Delete Data"></TabHeader>
+            </ChildContent>
+            <ContentTemplate>
+                <SfDropDownList Width="300px" TItem="string" TValue="string" DataSource="data2" Placeholder="Put a period of time (by default current day)">
+
+                    <DropDownListEvents  TItem="string" TValue="string" ValueChange="@ValueChangeHandler"></DropDownListEvents>
+
+                    <DropDownListFieldSettings Text="string" Value="string">
+                    </DropDownListFieldSettings>
+
+                </SfDropDownList>
+                <br>
+                    @if (String.IsNullOrEmpty(@DataSymbol))
+                    {
+                        <button  style="margin-bottom:2em" class="btn btn-primary" ceiling="10" floor="0" disabled>Delete</button>
+                    }else
+                    {
+                        <button @onclick="ProvideDelete" style="margin-bottom:2em" class="btn btn-primary" ceiling="10" floor="0">Delete</button>
+                    }
+                    <p>@DataSymbol</p>
+            </ContentTemplate>
+        </TabItem>
+    </TabItems>
+</SfTab>
+
+    
+    
 }
-
 @code {
+    public class DateVariants
+    {
+        public string Name { get; set; }
+
+        public int Value { get; set; }
+
+    };
     public List<CompanyDTOClient> list = new List<CompanyDTOClient>();
-
-
+    public string deleted = "1";
+    public string chosen = "12";
+    public string DataSymbol = "";
 
     protected override async Task OnInitializedAsync()
     {
         this.list = (await CompanyRepository.GetInfo());
+        foreach (var item in list)
+        {
+            data2.Add(item.Symbol);
+        }
         StateHasChanged();
     }
+
+    protected void ValueChangeHandler(ChangeEventArgs<string, string> args)
+    {
+        DataSymbol = args.ItemData;
+
+    }
+
+    protected async Task ProvideDelete()
+    {
+        list.RemoveAll(x=>x.Symbol == DataSymbol);
+        data2.RemoveAll(x=>x==DataSymbol);
+        await CompanyRepository.DeleteInfo(DataSymbol);
+        DataSymbol = "";
+    }
+
+    List<string> data2 = new List<string>
+    {
+     
+    };
+
 }

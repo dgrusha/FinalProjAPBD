@@ -9,7 +9,9 @@ namespace FinalApbd3.Client.Repository
 
         public Task<string> AddInfo(CompanyDTOClient company);
 
-        public  Task<List<CompanyDTOClient>> GetInfo();
+        public Task<List<CompanyDTOClient>> GetInfo();
+
+        public Task DeleteInfo(string symbol);
 
     }
 }
