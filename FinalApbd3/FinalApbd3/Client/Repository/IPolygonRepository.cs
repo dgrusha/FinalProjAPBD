@@ -12,13 +12,13 @@ namespace FinalApbd3.Client.Repository
 
         public Task<string> AddInfo(CompanyDTOClient company);
 
-        public  Task<DailyOC> takeDataForDaily(string ticker);
+        public  Task<DailyOC> takeDataForDaily(string ticker);//
 
-        public Task<DataByTicker> takeDataForDetails(string ticker);
+        public Task<DataByTicker> takeDataForDetails(string ticker);//
 
-        public Task<DataContainer> takeDataForChart(string ticker);
+        public Task<DataContainer> takeDataForChart(string ticker);//
 
-        public Task<NewsContainer> takeDataForNews(string ticker);
+        public Task<NewsContainer> takeDataForNews(string ticker);//
 
     }
 }

@@ -20,10 +20,12 @@ namespace FinalApbd3.Server.Controllers
 
         private HttpClient _client;
         IPolygonService _polygonService;
+        private ILocalDbService _localDbService;
 
-        public PolygonController(HttpClient client, IPolygonService polygonService) 
+        public PolygonController(HttpClient client, IPolygonService polygonService, ILocalDbService localDbService) 
         {
             _polygonService = polygonService;
+            _localDbService = localDbService;
             _client = client;
         }
 
@@ -35,6 +37,10 @@ namespace FinalApbd3.Server.Controllers
             char[] charArr = ticker.ToCharArray();
             char nextCh = (char)((int)charArr[0] + 1);
             var test = await _client.GetAsync("https://api.polygon.io/v3/reference/tickers?ticker.gte="+charArr[0]+"&ticker.lt="+nextCh+"&active=true&sort=ticker&order=asc&limit=1000&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B");
+            if (!test.IsSuccessStatusCode)
+            {
+                return "404";
+            }
             test.EnsureSuccessStatusCode();
             string response = await test.Content.ReadAsStringAsync();
             Console.WriteLine("Response" + response);
@@ -49,10 +55,14 @@ namespace FinalApbd3.Server.Controllers
             _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var test = await _client.GetAsync("https://api.polygon.io/v3/reference/tickers/"+ticker+"?apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B");
+            if (!test.IsSuccessStatusCode)
+            {
+                return "404";
+            }
             test.EnsureSuccessStatusCode();
             string response = await test.Content.ReadAsStringAsync();
             Console.WriteLine("Response" + response);
-
+            _localDbService.SaveV3(response);
             return response;
         }
 
@@ -63,10 +73,14 @@ namespace FinalApbd3.Server.Controllers
             _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var test = await _client.GetAsync("https://api.polygon.io/v2/reference/news?ticker="+ticker+"&limit=5&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B");
+            if (!test.IsSuccessStatusCode)
+            {
+                return "404";
+            }
             test.EnsureSuccessStatusCode();
             string response = await test.Content.ReadAsStringAsync();
             Console.WriteLine("Response" + response);
-
+            _localDbService.SaveNews(response);
             return response;
         }
 
@@ -93,7 +107,6 @@ namespace FinalApbd3.Server.Controllers
             }
             string dt2String = dt2.ToString("yyyy-MM-dd");
             string req = "https://api.polygon.io/v1/open-close/"+ticker2+"/"+dt2String+"?adjusted=true&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
-            //string req = "https://api.polygon.io/v1/open-close/" + ticker.Substring(0, ticker.Length - 1) + "/" + dt2String + "?adjusted=true&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
             var test = await _client.GetAsync(req);
             if (!test.IsSuccessStatusCode)
             {
@@ -102,7 +115,7 @@ namespace FinalApbd3.Server.Controllers
             test.EnsureSuccessStatusCode();
             string response = await test.Content.ReadAsStringAsync();
             Console.WriteLine("Response" + response);
-
+            _localDbService.SaveDailyOc(response);
             return response;
         }
 
@@ -136,8 +149,13 @@ namespace FinalApbd3.Server.Controllers
             string req = "https://api.polygon.io/v2/aggs/ticker/" + tickerRes + intervalOption + dt2String + "/" + dt1 + "?adjusted=true&sort=asc&limit=120&apiKey=Ub9KTYEXiAeWEUQBdRFBjsNUv8Yy285B";
             var test = await _client.GetAsync(req);
             test.EnsureSuccessStatusCode();
+            if (!test.IsSuccessStatusCode)
+            {
+                return "404";
+            }
             string response = await test.Content.ReadAsStringAsync();
             Console.WriteLine("Response" + response);
+            _localDbService.SaveDataContainer(response);
             return response;
         }
 

@@ -11,12 +11,12 @@ namespace FinalApbd3.Shared.Models
 
         public List<News> results { get; set; }
 
-        public string status { get; set; }
+        public string? status { get; set; }
 
-        public string request_id { get; set; }
+        public string? request_id { get; set; }
 
-        public string count { get; set; }
+        public string? count { get; set; }
 
-        public string next_url { get; set; }
+        public string? next_url { get; set; }
     }
 }

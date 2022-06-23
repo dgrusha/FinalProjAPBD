@@ -31,9 +31,13 @@ namespace FinalApbd3.Server
         {
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<MyLocalContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("LocalContext")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -49,6 +53,7 @@ namespace FinalApbd3.Server
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddScoped<IPolygonService, PolygonioService>();
+            services.AddScoped<ILocalDbService, LocalDbService>();
             services.AddHttpContextAccessor();
         }
 

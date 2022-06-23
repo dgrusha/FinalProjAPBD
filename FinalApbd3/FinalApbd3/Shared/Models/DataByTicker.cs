@@ -9,8 +9,8 @@ namespace FinalApbd3.Shared.Models
     public class DataByTicker
     {
         public ResultsDataV3 results { get; set; }
-        public string status { get; set; }
+        public string? status { get; set; }
 
-        public string request_id { get; set; }
+        public string? request_id { get; set; }
     }
 }

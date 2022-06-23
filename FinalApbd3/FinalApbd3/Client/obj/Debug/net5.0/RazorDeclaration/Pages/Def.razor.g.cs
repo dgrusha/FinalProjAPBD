@@ -175,7 +175,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 132 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\Def.razor"
+#line 131 "C:\Users\Dima\source\repos\FinalProjAPBD\FinalApbd3\FinalApbd3\Client\Pages\Def.razor"
        
     public List<CompanyContainer> companyContainers = new List<CompanyContainer>(); 
     public string CompanyNameHidden = "";

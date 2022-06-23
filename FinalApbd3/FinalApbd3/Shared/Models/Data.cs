@@ -29,7 +29,7 @@ namespace FinalApbd3.Shared.Models
             return DateTime.UnixEpoch.AddMilliseconds(t);
         }
 
-        public DateTime date { get; set; }
+        public DateTime? date { get; set; }
         public long v { get; set; }
 
         public float vw { get; set; }
