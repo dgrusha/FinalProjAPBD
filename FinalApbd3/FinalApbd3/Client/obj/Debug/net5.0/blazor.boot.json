@@ -210,7 +210,6 @@
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "FinalApbd3.Shared.pdb": "sha256-xfxU3rgzDpn5RqUl1pWl8AoKUf+gMmGPrIp9qkBWUr4=",
       "FinalApbd3.Client.pdb": "sha256-ejomuo60UcKzSSSNeEnK3djSTVGz3qR7Bjr5vjFAwR0="
     },
     "runtime": {
