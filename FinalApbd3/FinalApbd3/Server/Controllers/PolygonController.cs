@@ -18,15 +18,11 @@ namespace FinalApbd3.Server.Controllers
     public class PolygonController : ControllerBase
     {
 
-        private HttpClient _client;
         IPolygonService _polygonService;
-        private ILocalDbService _localDbService;
 
-        public PolygonController(HttpClient client, IPolygonService polygonService, ILocalDbService localDbService) 
+        public PolygonController(IPolygonService polygonService) 
         {
             _polygonService = polygonService;
-            _localDbService = localDbService;
-            _client = client;
         }
 
         [Route("s2/{ticker}")]

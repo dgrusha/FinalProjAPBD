@@ -54,6 +54,7 @@ namespace FinalApbd3.Server
             services.AddRazorPages();
             services.AddScoped<IPolygonService, PolygonioService>();
             services.AddScoped<ILocalDbService, LocalDbService>();
+            services.AddScoped<ICompanyService, CompanyService>();
             services.AddHttpContextAccessor();
         }
 
